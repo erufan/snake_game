@@ -31,3 +31,48 @@ const createSnake = () => {
 
   snakeBody.push(obj);
 };
+
+const arangeBody = () => {
+  snakeBody.forEach((s) => {
+    s.el.style.gridColumn = s.x.toString();
+    s.el.style.gridRow = s.y.toString();
+  });
+};
+
+let direction: string;
+const move = () => {
+  snakeBody.forEach((s) => {
+    if (direction === "ArrowLeft") {
+      s.key == 0 ? s.x-- : setTimeout(() => s.x--, 1);
+    }
+    if (direction === "ArrowUp") {
+      s.key == 0 ? s.y-- : setTimeout(() => s.y--, 1);
+    }
+    if (direction === "ArrowRight") {
+      s.key == 0 ? s.x++ : setTimeout(() => s.x++, 1);
+    }
+    if (direction === "ArrowDown") {
+      s.key == 0 ? s.y++ : setTimeout(() => s.y++, 1);
+    }
+  });
+};
+
+const setDirection = (event: KeyboardEvent) => {
+  if (event.key === "ArrowLeft") direction = "ArrowLeft";
+
+  if (event.key === "ArrowUp") direction = "ArrowUp";
+
+  if (event.key === "ArrowRight") direction = "ArrowRight";
+
+  if (event.key === "ArrowDown") direction = "ArrowDown";
+};
+
+document.addEventListener("keydown", setDirection);
+
+createSnake(); //for test move
+createSnake(); //for test move
+
+setInterval(() => {
+  arangeBody();
+  move();
+}, 500); //for test move

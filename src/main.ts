@@ -9,6 +9,7 @@ interface SnakeBody {
 
 const app = document.getElementById("app");
 const snakeBody: SnakeBody[] = [];
+let hasFruits = false;
 
 const createElement = (className: string) => {
   const element = document.createElement("div");
@@ -79,10 +80,10 @@ const setDirection = (event: KeyboardEvent) => {
 
 document.addEventListener("keydown", setDirection);
 
-let hasFruits = false;
 const createFruit = () => {
   if (!hasFruits) {
     const fruit = createElement("fruitElement");
+
     app!.append(fruit);
 
     const x = Math.floor(Math.random() * 27);
@@ -91,22 +92,22 @@ const createFruit = () => {
     fruit.style.gridColumn = x.toString();
     fruit.style.gridRow = y.toString();
     hasFruits = true;
-
-    return fruit;
   }
 };
 
-const eatFruit = (snake: HTMLElement, fruit: HTMLElement) => {
-  if (snake.style.gridArea === fruit.style.gridArea) {
-    fruit.remove();
+const eatFruit = (snake: HTMLElement) => {
+  const fruit = document.querySelector<HTMLElement>(".fruitElement");
+
+  if (snake.style.gridArea === fruit!.style.gridArea) {
+    fruit!.remove();
     hasFruits = false;
   }
 };
 
 createSnake();
-const fruit = createFruit();
 
 setInterval(() => {
+  createFruit();
   move();
-  eatFruit(snakeBody[0].el, fruit!);
-}, 500);
+  eatFruit(snakeBody[0].el);
+}, 100);

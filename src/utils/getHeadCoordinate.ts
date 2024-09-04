@@ -1,6 +1,6 @@
-import { SnakeBody } from "../main";
+import { snakeBody } from "../variables/snakeBody";
 
-const getHeadCoordinate = (snakeBody: SnakeBody[]) => {
+const getHeadCoordinate = () => {
   return {
     x: parseInt(snakeBody[0].el.style.gridColumn),
     y: parseInt(snakeBody[0].el.style.gridRow),

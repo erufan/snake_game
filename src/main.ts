@@ -11,10 +11,10 @@ const app = document.getElementById("app");
 const snakeBody: SnakeBody[] = [];
 let hasFruits = false;
 const getpositions = () => {
-  return [
-    parseInt(snakeBody[0].el.style.gridRow),
-    parseInt(snakeBody[0].el.style.gridColumn),
-  ];
+  return {
+    x: parseInt(snakeBody[0].el.style.gridColumn),
+    y: parseInt(snakeBody[0].el.style.gridRow),
+  };
 };
 
 const createElement = (className: string) => {
@@ -114,9 +114,23 @@ const Grid_Max = 26;
 const Grid_Min = 1;
 
 const boxLoseCondition = () => {
-  const positions = getpositions();
+  const p = getpositions();
+  const coordinates = Object.values(p);
+  const snake = [...document.querySelectorAll<HTMLElement>(".snakeElement")];
+  const body = snake.slice(1);
 
-  if (positions.some((p) => p > Grid_Max || p < Grid_Min)) {
+  if (coordinates.some((c) => c > Grid_Max || c < Grid_Min)) {
+    document.body!.innerHTML = "<div>you lost</div>";
+    clearInterval(interval);
+  }
+
+  if (
+    body.some(
+      (b) =>
+        parseInt(b.style.gridColumn) === p.x &&
+        parseInt(b.style.gridRow) === p.y
+    )
+  ) {
     document.body!.innerHTML = "<div>you lost</div>";
     clearInterval(interval);
   }

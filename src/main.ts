@@ -26,20 +26,7 @@ const createElement = (className: string) => {
 
 const createSnake = () => {
   const snake = createElement("snakeElement");
-  if (snakeBody.length === 0) {
-    const obj: SnakeBody = { el: snake, key: snakeBody.length, x: 13, y: 13 };
-
-    snakeBody.push(obj);
-
-    return;
-  }
-  //for now its 12 and later it will be position of eaten fruit
-  const obj: SnakeBody = {
-    el: snake,
-    key: snakeBody.length,
-    x: snakeBody.length + 10,
-    y: 13,
-  };
+  const obj: SnakeBody = { el: snake, key: snakeBody.length, x: 13, y: 13 };
 
   snakeBody.push(obj);
 };

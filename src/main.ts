@@ -10,6 +10,12 @@ interface SnakeBody {
 const app = document.getElementById("app");
 const snakeBody: SnakeBody[] = [];
 let hasFruits = false;
+const getpositions = () => {
+  return [
+    parseInt(snakeBody[0].el.style.gridRow),
+    parseInt(snakeBody[0].el.style.gridColumn),
+  ];
+};
 
 const createElement = (className: string) => {
   const element = document.createElement("div");
@@ -117,14 +123,13 @@ const increaseSize = (food: HTMLElement) => {
   });
 };
 
-let boxLoseCordinats;
+const Grid_Max = 26;
+const Grid_Min = 1;
+
 const boxLoseCondition = (snake: HTMLElement) => {
-  if (
-    parseInt(snake.style.gridRow) > 26 ||
-    parseInt(snake.style.gridRow) < 1 ||
-    parseInt(snake.style.gridColumn) > 26 ||
-    parseInt(snake.style.gridColumn) < 1
-  ) {
+  const positions = getpositions();
+
+  if (positions.some((p) => p > Grid_Max || p < Grid_Min)) {
     document.body!.innerHTML = "<div>you lost</div>";
     clearInterval(interval);
   }

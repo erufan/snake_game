@@ -5,15 +5,9 @@ import handleDirectionChange from "./components/snake/handleDirectionChange";
 import move from "./components/snake/move";
 import "./style.css";
 import getHeadCoordinate from "./utils/getHeadCoordinate";
-
-export interface SnakeBody {
-  el: HTMLElement;
-  x: number;
-  y: number;
-}
+import { snakeBody } from "./variables/snakeBody";
 
 // const app = document.getElementById("app"); make it global later
-const snakeBody: SnakeBody[] = [];
 
 document.addEventListener("keydown", handleDirectionChange);
 
@@ -44,13 +38,13 @@ const boxLoseCondition = () => {
 };
 
 const startGame = () => {
-  createSnake(snakeBody);
+  createSnake();
 };
 
 const updateGame = () => {
   createFruit();
-  move(snakeBody);
-  eatFruit(snakeBody);
+  move();
+  eatFruit();
   boxLoseCondition();
 };
 

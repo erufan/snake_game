@@ -1,8 +1,8 @@
-import { SnakeBody } from "../../main";
 import createElement from "../../utils/createElement";
-import { setHasFruit } from "../../utils/hasFruit";
+import { setHasFruit } from "../../variables/hasFruit";
+import { snakeBody } from "../../variables/snakeBody";
 
-const eatFruit = (snakeBody: SnakeBody[]) => {
+const eatFruit = () => {
   const fruit = document.querySelector<HTMLElement>(".fruitElement");
   const snakeHead = snakeBody[0].el;
 
@@ -12,13 +12,13 @@ const eatFruit = (snakeBody: SnakeBody[]) => {
   ) {
     fruit!.remove();
     setHasFruit(false);
-    increaseSize(snakeBody, fruit!);
+    increaseSize(fruit!);
   }
 };
 
 export default eatFruit;
 
-const increaseSize = (snakeBody: SnakeBody[], food: HTMLElement) => {
+const increaseSize = (food: HTMLElement) => {
   snakeBody.push({
     el: createElement("snakeElement"),
     x: parseFloat(food.style.gridColumn),

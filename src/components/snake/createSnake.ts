@@ -1,10 +1,10 @@
-import { SnakeBody } from "../../main";
 import createElement from "../../utils/createElement";
+import { snakeBody } from "../../variables/snakeBody";
 
-const createSnake = (snakeBody: SnakeBody[]) => {
+const createSnake = () => {
   const Middle_Of_Board = { x: 13, y: 13 };
   const snake = createElement("snakeElement");
-  const obj: SnakeBody = { el: snake, ...Middle_Of_Board };
+  const obj = { el: snake, ...Middle_Of_Board };
 
   snakeBody.push(obj);
 };

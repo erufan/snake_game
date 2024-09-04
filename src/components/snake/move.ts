@@ -1,21 +1,21 @@
-import { SnakeBody } from "../../main";
-import { direction } from "../../utils/direction";
+import { direction } from "../../variables/direction";
+import { snakeBody } from "../../variables/snakeBody";
 
-const move = (snakeBody: SnakeBody[]) => {
-  moveSnakeBody(snakeBody);
-  updateHeadPosition(snakeBody);
-  arangeBody(snakeBody);
+const move = () => {
+  moveSnakeBody();
+  updateHeadPosition();
+  arangeBody();
 };
 export default move;
 
-const moveSnakeBody = (snakeBody: SnakeBody[]) => {
+const moveSnakeBody = () => {
   for (let i = snakeBody.length - 1; i > 0; i--) {
     snakeBody[i].x = snakeBody[i - 1].x;
     snakeBody[i].y = snakeBody[i - 1].y;
   }
 };
 
-const updateHeadPosition = (snakeBody: SnakeBody[]) => {
+const updateHeadPosition = () => {
   const snakeHead = snakeBody[0];
 
   if (direction === "ArrowLeft") snakeHead.x--;
@@ -27,7 +27,7 @@ const updateHeadPosition = (snakeBody: SnakeBody[]) => {
   if (direction === "ArrowDown") snakeHead.y++;
 };
 
-const arangeBody = (snakeBody: SnakeBody[]) => {
+const arangeBody = () => {
   const app = document.getElementById("app"); //check this later
 
   snakeBody.forEach((s) => {

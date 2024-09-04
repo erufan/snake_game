@@ -1,4 +1,4 @@
-import { setDirection } from "../../utils/direction";
+import { setDirection } from "../../variables/direction";
 
 const handleDirectionChange = (event: KeyboardEvent) => {
   const validDirections = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];

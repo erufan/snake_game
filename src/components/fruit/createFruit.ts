@@ -1,5 +1,5 @@
 import createElement from "../../utils/createElement";
-import { hasFruit, setHasFruit } from "../../utils/hasFruit";
+import { hasFruit, setHasFruit } from "../../variables/hasFruit";
 
 const createFruit = () => {
   const app = document.getElementById("app");

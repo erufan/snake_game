@@ -86,8 +86,8 @@ const createFruit = () => {
 
     app!.append(fruit);
 
-    const x = Math.floor(Math.random() * 27);
-    const y = Math.floor(Math.random() * 27);
+    const x = Math.floor(Math.random() * 26) + 1;
+    const y = Math.floor(Math.random() * 26) + 1;
 
     fruit.style.gridColumn = x.toString();
     fruit.style.gridRow = y.toString();
@@ -98,7 +98,10 @@ const createFruit = () => {
 const eatFruit = (snake: HTMLElement) => {
   const fruit = document.querySelector<HTMLElement>(".fruitElement");
 
-  if (snake.style.gridArea === fruit!.style.gridArea) {
+  if (
+    snake.style.gridColumn === fruit!.style.gridColumn &&
+    snake.style.gridRow === fruit!.style.gridRow
+  ) {
     fruit!.remove();
     hasFruits = false;
     increaseSize(fruit!);

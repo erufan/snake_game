@@ -126,7 +126,7 @@ const increaseSize = (food: HTMLElement) => {
 const Grid_Max = 26;
 const Grid_Min = 1;
 
-const boxLoseCondition = (snake: HTMLElement) => {
+const boxLoseCondition = () => {
   const positions = getpositions();
 
   if (positions.some((p) => p > Grid_Max || p < Grid_Min)) {
@@ -135,12 +135,16 @@ const boxLoseCondition = (snake: HTMLElement) => {
   }
 };
 
-createSnake(); //test for lose condition
+const startGame = () => {
+  createSnake();
+};
 
-const interval = setInterval(() => {
-  //test for lose condition
+const updateGAme = () => {
   createFruit();
   move();
   eatFruit(snakeBody[0].el);
-  boxLoseCondition(snakeBody[0].el);
-}, 100);
+  boxLoseCondition();
+};
+
+startGame();
+const interval = setInterval(updateGAme, 100);

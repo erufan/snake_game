@@ -79,7 +79,7 @@ const setDirection = (event: KeyboardEvent) => {
 
 document.addEventListener("keydown", setDirection);
 
-const hasFruits = false;
+let hasFruits = false;
 const createFruit = () => {
   if (!hasFruits) {
     const fruit = createElement("fruitElement");
@@ -90,7 +90,23 @@ const createFruit = () => {
 
     fruit.style.gridColumn = x.toString();
     fruit.style.gridRow = y.toString();
+    hasFruits = true;
+
+    return fruit;
   }
 };
 
-createFruit(); //test for createFruit
+const eatFruit = (snake: HTMLElement, fruit: HTMLElement) => {
+  if (snake.style.gridArea === fruit.style.gridArea) {
+    fruit.remove();
+    hasFruits = false;
+  }
+};
+
+createSnake();
+const fruit = createFruit();
+
+setInterval(() => {
+  move();
+  eatFruit(snakeBody[0].el, fruit!);
+}, 500);

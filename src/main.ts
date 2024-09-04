@@ -77,12 +77,18 @@ const setDirection = (event: KeyboardEvent) => {
   if (event.key === "ArrowDown") direction = "ArrowDown";
 };
 
-document.addEventListener("keydown", setDirection);
+const hasFruits = false;
+const createFruit = () => {
+  if (!hasFruits) {
+    const fruit = createElement("fruitElement");
+    app!.append(fruit);
 
-createSnake(); //for test move
-createSnake(); //for test move
-createSnake(); //for test move
+    const x = Math.floor(Math.random() * 27);
+    const y = Math.floor(Math.random() * 27);
 
-setInterval(() => {
-  move();
-}, 500); //for test move
+    fruit.style.gridColumn = x.toString();
+    fruit.style.gridRow = y.toString();
+  }
+};
+
+createFruit(); //test for createFruit

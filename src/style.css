@@ -27,3 +27,10 @@ body {
   height: 125%;
   border: dotted rgb(255, 239, 239) 5px;
 }
+
+.fruitElement {
+  background-color: rgb(174, 64, 141);
+  width: 100%;
+  height: 125%;
+  border: solid rgb(236, 72, 72) 3px;
+}

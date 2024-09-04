@@ -117,10 +117,25 @@ const increaseSize = (food: HTMLElement) => {
   });
 };
 
-createSnake();
+let boxLoseCordinats;
+const boxLoseCondition = (snake: HTMLElement) => {
+  if (
+    parseInt(snake.style.gridRow) > 26 ||
+    parseInt(snake.style.gridRow) < 1 ||
+    parseInt(snake.style.gridColumn) > 26 ||
+    parseInt(snake.style.gridColumn) < 1
+  ) {
+    document.body!.innerHTML = "<div>you lost</div>";
+    clearInterval(interval);
+  }
+};
 
-setInterval(() => {
+createSnake(); //test for lose condition
+
+const interval = setInterval(() => {
+  //test for lose condition
   createFruit();
   move();
   eatFruit(snakeBody[0].el);
+  boxLoseCondition(snakeBody[0].el);
 }, 100);

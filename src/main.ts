@@ -77,6 +77,8 @@ const setDirection = (event: KeyboardEvent) => {
   if (event.key === "ArrowDown") direction = "ArrowDown";
 };
 
+document.addEventListener("keydown", setDirection);
+
 const hasFruits = false;
 const createFruit = () => {
   if (!hasFruits) {

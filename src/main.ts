@@ -101,7 +101,17 @@ const eatFruit = (snake: HTMLElement) => {
   if (snake.style.gridArea === fruit!.style.gridArea) {
     fruit!.remove();
     hasFruits = false;
+    increaseSize(fruit!);
   }
+};
+
+const increaseSize = (food: HTMLElement) => {
+  snakeBody.push({
+    el: createElement("snakeElement"),
+    key: snakeBody.length,
+    x: parseFloat(food.style.gridColumn),
+    y: parseFloat(food.style.gridRow),
+  });
 };
 
 createSnake();

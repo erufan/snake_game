@@ -1,80 +1,25 @@
+import createSnake from "./components/snake/createSnake";
+import eatFruit from "./components/snake/eatFruit";
+import handleDirectionChange from "./components/snake/handleDirectionChange";
+import move from "./components/snake/move";
 import "./style.css";
+import createElement from "./utils/createElement";
+import getHeadCoordinate from "./utils/getHeadCoordinate";
+import { hasFruit, setHasFruit } from "./utils/hasFruit";
 
-interface SnakeBody {
+export interface SnakeBody {
   el: HTMLElement;
-  key: number;
   x: number;
   y: number;
 }
 
 const app = document.getElementById("app");
 const snakeBody: SnakeBody[] = [];
-let hasFruits = false;
-const getpositions = () => {
-  return {
-    x: parseInt(snakeBody[0].el.style.gridColumn),
-    y: parseInt(snakeBody[0].el.style.gridRow),
-  };
-};
 
-const createElement = (className: string) => {
-  const element = document.createElement("div");
-  element.className = className;
-
-  return element;
-};
-
-const createSnake = () => {
-  const snake = createElement("snakeElement");
-  const obj: SnakeBody = { el: snake, key: snakeBody.length, x: 13, y: 13 };
-
-  snakeBody.push(obj);
-};
-
-const arangeBody = () => {
-  snakeBody.forEach((s) => {
-    app!.append(s.el);
-    s.el.style.gridColumn = s.x.toString();
-    s.el.style.gridRow = s.y.toString();
-  });
-};
-
-let direction: string;
-let hasMovement = false;
-
-const move = () => {
-  if (hasMovement) {
-    for (let i = snakeBody.length - 1; i > 0; i--) {
-      snakeBody[i].x = snakeBody[i - 1].x;
-      snakeBody[i].y = snakeBody[i - 1].y;
-    }
-
-    if (direction === "ArrowLeft") snakeBody[0].x--;
-
-    if (direction === "ArrowUp") snakeBody[0].y--;
-
-    if (direction === "ArrowRight") snakeBody[0].x++;
-
-    if (direction === "ArrowDown") snakeBody[0].y++;
-  }
-  arangeBody();
-};
-
-const setDirection = (event: KeyboardEvent) => {
-  hasMovement = true;
-  if (event.key === "ArrowLeft") direction = "ArrowLeft";
-
-  if (event.key === "ArrowUp") direction = "ArrowUp";
-
-  if (event.key === "ArrowRight") direction = "ArrowRight";
-
-  if (event.key === "ArrowDown") direction = "ArrowDown";
-};
-
-document.addEventListener("keydown", setDirection);
+document.addEventListener("keydown", handleDirectionChange);
 
 const createFruit = () => {
-  if (!hasFruits) {
+  if (!hasFruit) {
     const fruit = createElement("fruitElement");
 
     app!.append(fruit);
@@ -84,42 +29,20 @@ const createFruit = () => {
 
     fruit.style.gridColumn = x.toString();
     fruit.style.gridRow = y.toString();
-    hasFruits = true;
+    setHasFruit(true);
   }
-};
-
-const eatFruit = (snake: HTMLElement) => {
-  const fruit = document.querySelector<HTMLElement>(".fruitElement");
-
-  if (
-    snake.style.gridColumn === fruit!.style.gridColumn &&
-    snake.style.gridRow === fruit!.style.gridRow
-  ) {
-    fruit!.remove();
-    hasFruits = false;
-    increaseSize(fruit!);
-  }
-};
-
-const increaseSize = (food: HTMLElement) => {
-  snakeBody.push({
-    el: createElement("snakeElement"),
-    key: snakeBody.length,
-    x: parseFloat(food.style.gridColumn),
-    y: parseFloat(food.style.gridRow),
-  });
 };
 
 const Grid_Max = 26;
 const Grid_Min = 1;
 
 const boxLoseCondition = () => {
-  const p = getpositions();
-  const coordinates = Object.values(p);
+  const coordinate = getHeadCoordinate(snakeBody);
+  const position = Object.values(coordinate);
   const snake = [...document.querySelectorAll<HTMLElement>(".snakeElement")];
   const body = snake.slice(1);
 
-  if (coordinates.some((c) => c > Grid_Max || c < Grid_Min)) {
+  if (position.some((p) => p > Grid_Max || p < Grid_Min)) {
     document.body!.innerHTML = "<div>you lost</div>";
     clearInterval(interval);
   }
@@ -127,8 +50,8 @@ const boxLoseCondition = () => {
   if (
     body.some(
       (b) =>
-        parseInt(b.style.gridColumn) === p.x &&
-        parseInt(b.style.gridRow) === p.y
+        parseInt(b.style.gridColumn) === coordinate.x &&
+        parseInt(b.style.gridRow) === coordinate.y
     )
   ) {
     document.body!.innerHTML = "<div>you lost</div>";
@@ -137,15 +60,15 @@ const boxLoseCondition = () => {
 };
 
 const startGame = () => {
-  createSnake();
+  createSnake(snakeBody);
 };
 
-const updateGAme = () => {
+const updateGame = () => {
   createFruit();
-  move();
-  eatFruit(snakeBody[0].el);
+  move(snakeBody);
+  eatFruit(snakeBody);
   boxLoseCondition();
 };
 
 startGame();
-const interval = setInterval(updateGAme, 100);
+const interval = setInterval(updateGame, 100);

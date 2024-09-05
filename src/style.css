@@ -43,28 +43,3 @@ body {
   height: 125%;
   border: solid rgb(236, 72, 72) 3px;
 }
-
-.image {
-  width: 100%;
-}
-
-.loseText {
-  text-align: center;
-  font-size: 34px;
-  position: relative;
-  top: 100%;
-  opacity: 0;
-  animation: lose 4s linear forwards;
-}
-
-@keyframes lose {
-  from {
-    opacity: 0;
-    top: 10%;
-  }
-
-  to {
-    opacity: 1;
-    top: 0%;
-  }
-}

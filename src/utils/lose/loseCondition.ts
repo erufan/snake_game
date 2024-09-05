@@ -1,4 +1,5 @@
 import getHeadCoordinate from "../getHeadCoordinate";
+import "./loseStyle.css";
 
 const loseCondition = (interval: NodeJS.Timeout) => {
   const coordinate = getHeadCoordinate();

@@ -9,17 +9,21 @@ let gameStarted = false;
 
 const startGame = () => {
   if (!gameStarted) {
+    app!.classList.add("menu");
     app!.innerHTML = `
-    <button id="start">play</button>
+    <button id="button">play</button>
+    <image class="image" src="./public/happySnake-min.webp">
     `;
-    document.getElementById("start")!.onclick = (event) => {
+    document.getElementById("button")!.onclick = () => {
       gameStarted = true;
       startGame();
-      (event.target! as HTMLElement).remove();
     };
     return;
   }
-  app!.classList.add("app");
+  app!.innerHTML = "";
+  app!.classList.remove("menu");
+  app!.classList.add("play");
+
   createSnake();
   const interval = setInterval(() => updateGame(interval), 100);
 };

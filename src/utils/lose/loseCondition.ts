@@ -32,7 +32,9 @@ const loseUi = (interval: NodeJS.Timeout) => {
   clearInterval(interval);
   const app = document.getElementById("app");
 
-  app!.classList.remove("app");
+  app!.classList.remove("play");
+  app!.classList.add("menu");
+
   app!.innerHTML = `
     <p class="loseText">You Lost</p>
     <img class="image" src="./public/sadlose-min.webp" alt="you lost">

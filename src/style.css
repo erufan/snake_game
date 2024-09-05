@@ -27,7 +27,7 @@ body {
   grid-template-columns: repeat(26, 1fr);
   grid-template-rows: repeat(26, 1fr);
   border: 15px solid transparent;
-  border-image: url("../public/border.png") 20 repeat;
+  border-image: url("../public/border-min.webp") 20 repeat;
 }
 
 .snakeElement {

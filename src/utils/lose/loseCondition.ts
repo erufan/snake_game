@@ -35,6 +35,6 @@ const loseUi = (interval: NodeJS.Timeout) => {
   app!.classList.remove("app");
   app!.innerHTML = `
     <p class="loseText">You Lost</p>
-    <img class="image" src="./public/sadlose.webp" alt="you lost">
+    <img class="image" src="./public/sadlose-min.webp" alt="you lost">
   `;
 };

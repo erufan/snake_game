@@ -1,4 +1,3 @@
-import { setGameStarted } from "../../variables/gameStarted";
 import createEnterImage from "./createEnterImage";
 import createStartButton from "./createStartButton";
 

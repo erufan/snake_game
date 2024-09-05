@@ -1,11 +1,9 @@
-import createEnterImage from "./components/menu/createEnterImage";
-import createStartButton from "./components/menu/createStartButton";
 import menu from "./components/menu/menu";
 import createSnake from "./components/snake/createSnake";
 import handleDirectionChange from "./components/snake/handleDirectionChange";
 import "./style.css";
 import updateGame from "./updateGame";
-import { gameStarted, setGameStarted } from "./variables/gameStarted";
+import { gameStarted } from "./variables/gameStarted";
 
 document.addEventListener("keydown", handleDirectionChange);
 const app = document.getElementById("app");

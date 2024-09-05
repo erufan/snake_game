@@ -10,14 +10,14 @@ document.addEventListener("keydown", handleDirectionChange);
 
 const startGame = () => {
   createSnake();
+  const interval = setInterval(() => updateGame(interval), 100);
 };
 
-const updateGame = () => {
+const updateGame = (interval: NodeJS.Timeout) => {
   createFruit();
   move();
   eatFruit();
-  loseCondition();
+  loseCondition(interval);
 };
 
 startGame();
-const interval = setInterval(updateGame, 100);

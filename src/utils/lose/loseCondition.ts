@@ -1,10 +1,10 @@
 import getHeadCoordinate from "../getHeadCoordinate";
 
-const loseCondition = () => {
+const loseCondition = (interval: NodeJS.Timeout) => {
   const coordinate = getHeadCoordinate();
   const position = Object.values(coordinate);
 
-  if (isHitWall(position) || isHitItself(coordinate)) loseUi();
+  if (isHitWall(position) || isHitItself(coordinate)) loseUi(interval);
 };
 
 export default loseCondition;
@@ -27,6 +27,13 @@ const isHitWall = (position: number[]) => {
   return position.some((p) => p > Grid_Max || p < Grid_Min);
 };
 
-const loseUi = () => {
-  document.body!.innerHTML = "<div>you lost</div>";
+const loseUi = (interval: NodeJS.Timeout) => {
+  clearInterval(interval);
+  const app = document.getElementById("app");
+
+  app!.classList.remove("app");
+  app!.innerHTML = `
+    <p class="loseText">You Lost</p>
+    <img class="image" src="./public/sadlose.webp" alt="you lost">
+  `;
 };

@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap");
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
 }
 
 body {
@@ -9,16 +15,19 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #4d5c99;
+}
+#app {
+  width: 35%;
+  height: 60%;
 }
 
-#app {
+.app {
   display: grid;
   grid-template-columns: repeat(26, 1fr);
   grid-template-rows: repeat(26, 1fr);
   border: 15px solid transparent;
   border-image: url("../public/border.png") 20 repeat;
-  width: 35%;
-  height: 60%;
 }
 
 .snakeElement {
@@ -33,4 +42,29 @@ body {
   width: 100%;
   height: 125%;
   border: solid rgb(236, 72, 72) 3px;
+}
+
+.image {
+  width: 100%;
+}
+
+.loseText {
+  text-align: center;
+  font-size: 34px;
+  position: relative;
+  top: 100%;
+  opacity: 0;
+  animation: lose 4s linear forwards;
+}
+
+@keyframes lose {
+  from {
+    opacity: 0;
+    top: 10%;
+  }
+
+  to {
+    opacity: 1;
+    top: 0%;
+  }
 }

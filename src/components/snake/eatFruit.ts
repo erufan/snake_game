@@ -20,7 +20,7 @@ export default eatFruit;
 
 const increaseSize = (food: HTMLElement) => {
   snakeBody.push({
-    el: createElement("snakeElement"),
+    el: createElement("div", "snakeElement"),
     x: parseFloat(food.style.gridColumn),
     y: parseFloat(food.style.gridRow),
   });

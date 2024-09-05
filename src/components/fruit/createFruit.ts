@@ -5,7 +5,7 @@ const createFruit = () => {
   const app = document.getElementById("app");
 
   if (!hasFruit) {
-    const fruit = createElement("fruitElement");
+    const fruit = createElement("div", "fruitElement");
 
     app!.append(fruit);
     setFruitPosition(fruit);

@@ -1,3 +1,6 @@
+import createEnterImage from "../../components/menu/createEnterImage";
+import { setGameStarted } from "../../variables/gameStarted";
+import createElement from "../createElement";
 import getHeadCoordinate from "../getHeadCoordinate";
 import "./loseStyle.css";
 
@@ -29,14 +32,19 @@ const isHitWall = (position: number[]) => {
 };
 
 const loseUi = (interval: NodeJS.Timeout) => {
-  clearInterval(interval);
   const app = document.getElementById("app");
 
+  clearInterval(interval);
+  setGameStarted(false);
+
+  app!.innerHTML = "";
   app!.classList.remove("play");
   app!.classList.add("menu");
 
-  app!.innerHTML = `
-    <p class="loseText">You Lost</p>
-    <img class="image" src="./public/sadlose-min.webp" alt="you lost">
-  `;
+  const lost = createElement("p", "loseText");
+  app!.append(lost);
+  lost.textContent = "You Lost";
+  lost.onclick = () => location.reload();
+
+  createEnterImage("./public/sadlose-min.webp", "you lost");
 };

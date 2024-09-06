@@ -1,0 +1,7 @@
+.fruitElement {
+  background-color: rgb(174, 64, 141);
+  width: 100%;
+  height: 125%;
+  border: solid rgb(236, 72, 72) 3px;
+  z-index: 2;
+}

@@ -1,5 +1,6 @@
 import createElement from "../../utils/createElement";
 import { snakeBody } from "../../variables/snakeBody";
+import "./snakeStyle.css";
 
 const createSnake = () => {
   const Middle_Of_Board = { x: 13, y: 13 };

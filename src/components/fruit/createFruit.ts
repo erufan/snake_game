@@ -1,4 +1,5 @@
 import createElement from "../../utils/createElement";
+import "./fruitStyle.css";
 import { hasFruit, setHasFruit } from "../../variables/hasFruit";
 
 const createFruit = () => {

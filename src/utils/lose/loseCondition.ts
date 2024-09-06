@@ -1,5 +1,6 @@
 import createEnterImage from "../../components/menu/createEnterImage";
 import { setGameStarted } from "../../variables/gameStarted";
+import sounds from "../audioManager";
 import createElement from "../createElement";
 import getHeadCoordinate from "../getHeadCoordinate";
 import "./loseStyle.css";
@@ -8,7 +9,10 @@ const loseCondition = (interval: NodeJS.Timeout) => {
   const coordinate = getHeadCoordinate();
   const position = Object.values(coordinate);
 
-  if (isHitWall(position) || isHitItself(coordinate)) loseUi(interval);
+  if (isHitWall(position) || isHitItself(coordinate)) {
+    sounds.lose.play();
+    loseUi(interval);
+  }
 };
 
 export default loseCondition;

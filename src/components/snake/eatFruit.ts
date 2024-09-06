@@ -1,3 +1,4 @@
+import sounds from "../../utils/audioManager";
 import createElement from "../../utils/createElement";
 import increaseSpeed from "../../utils/increaseSpeed";
 import updateScore from "../../utils/updateScore";
@@ -8,6 +9,7 @@ const eatFruit = (interval: NodeJS.Timeout) => {
   const fruit = document.querySelector<HTMLElement>(".fruitElement");
 
   if (isEatFruit(fruit!)) {
+    sounds.eat.play();
     fruit!.remove();
     setHasFruit(false);
     increaseSize(fruit!);

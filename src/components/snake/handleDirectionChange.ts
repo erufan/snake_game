@@ -1,4 +1,5 @@
 import { direction, setDirection } from "../../variables/direction";
+import { snakeBody } from "../../variables/snakeBody";
 
 const handleDirectionChange = (event: KeyboardEvent) => {
   const validDirections = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
@@ -11,7 +12,8 @@ const handleDirectionChange = (event: KeyboardEvent) => {
 
   if (
     event.key ===
-    oppositeDirections[direction as keyof typeof oppositeDirections]
+      oppositeDirections[direction as keyof typeof oppositeDirections] &&
+    snakeBody.length > 1
   )
     return;
 

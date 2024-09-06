@@ -4,12 +4,8 @@ import { snakeBody } from "../../variables/snakeBody";
 
 const eatFruit = () => {
   const fruit = document.querySelector<HTMLElement>(".fruitElement");
-  const snakeHead = snakeBody[0].el;
 
-  if (
-    snakeHead.style.gridColumn === fruit!.style.gridColumn &&
-    snakeHead.style.gridRow === fruit!.style.gridRow
-  ) {
+  if (isEatFruit(fruit!)) {
     const score = document.querySelector(".score");
 
     fruit!.remove();
@@ -31,4 +27,13 @@ const increaseSize = (food: HTMLElement) => {
     x: parseFloat(food.style.gridColumn),
     y: parseFloat(food.style.gridRow),
   });
+};
+
+const isEatFruit = (fruit: HTMLElement) => {
+  const snakeHead = snakeBody[0].el;
+
+  return (
+    snakeHead.style.gridColumn === fruit!.style.gridColumn &&
+    snakeHead.style.gridRow === fruit!.style.gridRow
+  );
 };

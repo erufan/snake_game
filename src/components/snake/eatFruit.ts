@@ -1,4 +1,5 @@
 import createElement from "../../utils/createElement";
+import updateScore from "../../utils/updateScore";
 import { setHasFruit } from "../../variables/hasFruit";
 import { snakeBody } from "../../variables/snakeBody";
 
@@ -6,16 +7,10 @@ const eatFruit = () => {
   const fruit = document.querySelector<HTMLElement>(".fruitElement");
 
   if (isEatFruit(fruit!)) {
-    const score = document.querySelector(".score");
-
     fruit!.remove();
     setHasFruit(false);
     increaseSize(fruit!);
-
-    score!.innerHTML = `<p>score : ${(
-      snakeBody.length * 10 -
-      10
-    ).toString()}</p>`;
+    updateScore();
   }
 };
 

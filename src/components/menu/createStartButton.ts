@@ -1,9 +1,9 @@
 import createElement from "../../utils/createElement";
+import { app } from "../../variables/app";
 import { setGameStarted } from "../../variables/gameStarted";
 
 const createStartButton = (callback: () => void) => {
   const button = createElement("button", "button");
-  const app = document.getElementById("app");
   app!.append(button);
 
   button.textContent = "start";

@@ -1,9 +1,9 @@
 import createElement from "../utils/createElement";
+import { app } from "../variables/app";
 import "./scoreStyle.css";
 
 const createScore = () => {
   const scoreContainer = createElement("div", "score");
-  const app = document.getElementById("app");
 
   scoreContainer.innerHTML = `
   <p>score :</p>

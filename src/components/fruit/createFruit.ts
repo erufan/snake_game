@@ -1,10 +1,9 @@
 import createElement from "../../utils/createElement";
 import "./fruitStyle.css";
 import { hasFruit, setHasFruit } from "../../variables/hasFruit";
+import { app } from "../../variables/app";
 
 const createFruit = () => {
-  const app = document.getElementById("app");
-
   if (!hasFruit) {
     const fruit = createElement("div", "fruitElement");
 

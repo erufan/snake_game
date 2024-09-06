@@ -1,4 +1,5 @@
 import createEnterImage from "../../components/menu/createEnterImage";
+import { app } from "../../variables/app";
 import { setGameStarted } from "../../variables/gameStarted";
 import sounds from "../audioManager";
 import createElement from "../createElement";
@@ -36,8 +37,6 @@ const isHitWall = (position: number[]) => {
 };
 
 const loseUi = (interval: NodeJS.Timeout) => {
-  const app = document.getElementById("app");
-
   clearInterval(interval);
   setGameStarted(false);
 

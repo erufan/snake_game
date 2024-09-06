@@ -1,3 +1,4 @@
+import { app } from "../../variables/app";
 import { direction } from "../../variables/direction";
 import { snakeBody } from "../../variables/snakeBody";
 
@@ -28,8 +29,6 @@ const updateHeadPosition = () => {
 };
 
 const arangeBody = () => {
-  const app = document.getElementById("app"); //check this later
-
   snakeBody.forEach((s) => {
     app!.append(s.el); //check this later
     s.el.style.gridColumn = s.x.toString();

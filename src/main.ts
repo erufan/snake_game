@@ -4,13 +4,13 @@ import createSnake from "./components/snake/createSnake";
 import handleDirectionChange from "./components/snake/handleDirectionChange";
 import "./style.css";
 import increaseSpeed from "./utils/increaseSpeed";
+import { app } from "./variables/app";
 import { gameStarted } from "./variables/gameStarted";
 
 document.addEventListener("keydown", handleDirectionChange);
 if (localStorage.getItem("highestScore") === null) {
   localStorage.setItem("highestScore", "0");
 }
-const app = document.getElementById("app");
 
 const startGame = () => {
   if (!gameStarted) menu(startGame);

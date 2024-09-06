@@ -6,7 +6,7 @@ import loseCondition from "./utils/lose/loseCondition";
 const updateGame = (interval: NodeJS.Timeout) => {
   createFruit();
   move();
-  eatFruit();
+  eatFruit(interval);
   loseCondition(interval);
 };
 

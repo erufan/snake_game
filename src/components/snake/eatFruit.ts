@@ -1,9 +1,10 @@
 import createElement from "../../utils/createElement";
+import increaseSpeed from "../../utils/increaseSpeed";
 import updateScore from "../../utils/updateScore";
 import { setHasFruit } from "../../variables/hasFruit";
 import { snakeBody } from "../../variables/snakeBody";
 
-const eatFruit = () => {
+const eatFruit = (interval: NodeJS.Timeout) => {
   const fruit = document.querySelector<HTMLElement>(".fruitElement");
 
   if (isEatFruit(fruit!)) {
@@ -11,6 +12,8 @@ const eatFruit = () => {
     setHasFruit(false);
     increaseSize(fruit!);
     updateScore();
+    clearInterval(interval);
+    increaseSpeed();
   }
 };
 

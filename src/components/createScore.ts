@@ -1,4 +1,5 @@
 import createElement from "../utils/createElement";
+import "./scoreStyle.css";
 
 const createScore = () => {
   const scoreContainer = createElement("div", "score");

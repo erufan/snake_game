@@ -7,6 +7,9 @@ import updateGame from "./updateGame";
 import { gameStarted } from "./variables/gameStarted";
 
 document.addEventListener("keydown", handleDirectionChange);
+if (localStorage.getItem("highestScore") === null) {
+  localStorage.setItem("highestScore", "0");
+}
 const app = document.getElementById("app");
 
 const startGame = () => {

@@ -8,7 +8,6 @@ const increaseSpeed = () => {
   const reducer = snakeBody.length * Speed_Coefficient;
 
   const speed = Math.max(Max_Speed, initialSpeed - reducer);
-  console.log(speed);
 
   const interval = setInterval(() => updateGame(interval), speed);
 };

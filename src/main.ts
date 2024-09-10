@@ -5,7 +5,7 @@ import handleDirectionChange from "./components/snake/handleDirectionChange";
 import "./style.css";
 import increaseSpeed from "./utils/increaseSpeed";
 import { app } from "./variables/app";
-import { gameStarted } from "./variables/gameStarted";
+import { gameStarted, setGameStarted } from "./variables/gameStarted";
 
 document.addEventListener("keydown", handleDirectionChange);
 if (localStorage.getItem("highestScore") === null) {
@@ -13,7 +13,11 @@ if (localStorage.getItem("highestScore") === null) {
 }
 
 const startGame = () => {
-  if (!gameStarted) menu(startGame);
+  if (!gameStarted)
+    menu(() => {
+      setGameStarted(true);
+      startGame();
+    });
   else {
     app!.innerHTML = "";
     app!.classList.remove("menu");

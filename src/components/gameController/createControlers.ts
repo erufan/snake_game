@@ -1,14 +1,17 @@
 import createElement from "../../utils/createElement";
+import { app } from "../../variables/app";
 import createButton from "../createButton";
+import "./controlersStyle.css";
 
 const createControlers = () => {
-  const horizontalMove = createButton("right/left", "horizontal");
-  const verticalMove = createButton("up/down", "vertical");
+  const rightButton = createButton("", "controlers");
+  const leftButton = createButton("", "controlers");
   const controlersContainer = createElement("div", "controlersContainer");
 
-  controlersContainer.append(horizontalMove);
-  controlersContainer.append(verticalMove);
-  document.body.append(controlersContainer);
+  controlersContainer.append(rightButton);
+  controlersContainer.append(leftButton);
+
+  app!.after(controlersContainer);
 };
 
 export default createControlers;

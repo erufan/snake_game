@@ -8,7 +8,6 @@
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  overflow: hidden;
 }
 
 body {
@@ -42,6 +41,7 @@ body {
   border: 15px solid transparent;
   border-image: url("../public/border-min.webp") 20 repeat;
   gap: 1px;
+  overflow: hidden;
 }
 
 .image {

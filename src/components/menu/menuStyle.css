@@ -9,7 +9,7 @@
   }
 }
 
-.button {
+.startButton {
   padding: 10px 25px;
   font-size: 150%;
   text-align: center;
@@ -20,11 +20,11 @@
 }
 
 @media only screen and (min-width: 426px) {
-  .button {
+  .startButton {
     margin-left: 5%;
   }
 }
 
-.button:hover {
+.startButton:hover {
   scale: 0.95;
 }

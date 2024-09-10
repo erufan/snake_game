@@ -6,8 +6,8 @@ import "./style.css";
 import increaseSpeed from "./utils/increaseSpeed";
 import { app } from "./variables/app";
 import { setDirection } from "./variables/direction";
-import { gameStarted } from "./variables/gameStarted";
 import { snakeBody } from "./variables/snakeBody";
+import { gameStarted, setGameStarted } from "./variables/gameStarted";
 
 document.addEventListener("keydown", handleDirectionChange);
 document.addEventListener("touchstart", (e) => {
@@ -38,7 +38,11 @@ if (localStorage.getItem("highestScore") === null) {
 }
 
 const startGame = () => {
-  if (!gameStarted) menu(startGame);
+  if (!gameStarted)
+    menu(() => {
+      setGameStarted(true);
+      startGame();
+    });
   else {
     app!.innerHTML = "";
     app!.classList.remove("menu");

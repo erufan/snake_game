@@ -49,5 +49,5 @@ const loseUi = (interval: NodeJS.Timeout) => {
   lost.textContent = "You Lost";
   lost.onclick = () => location.reload();
 
-  createEnterImage("./public/sadlose-min.webp", "you lost");
+  createEnterImage("/public/sadlose-min.webp", "you lost");
 };

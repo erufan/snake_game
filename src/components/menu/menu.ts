@@ -7,7 +7,7 @@ const menu = (callback: () => void) => {
   app!.classList.add("menu");
 
   createStartButton(callback);
-  createEnterImage("./public/happySnake-min.webp", "an green image in the box");
+  createEnterImage("/public/happySnake-min.webp", "an green image in the box");
 };
 
 export default menu;

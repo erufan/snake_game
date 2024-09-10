@@ -7,7 +7,7 @@ import imgae from "../../../public/happySnake-min.webp";
 const menu = (callback: () => void) => {
   app!.classList.add("menu");
 
-  const startButton = createButton("startButton", callback);
+  const startButton = createButton("start", "startButton", callback);
   app!.append(startButton);
 
   createEnterImage(`${imgae}`, "an green image in the box");

@@ -11,5 +11,6 @@
   .score {
     margin: 5% 0px 0px 10%;
     flex-direction: column;
+    width: inherit;
   }
 }

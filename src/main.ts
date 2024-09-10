@@ -6,8 +6,10 @@ import "./style.css";
 import increaseSpeed from "./utils/increaseSpeed";
 import { app } from "./variables/app";
 import { gameStarted, setGameStarted } from "./variables/gameStarted";
+import createControlers from "./components/gameController/createControlers";
 
 document.addEventListener("keydown", handleDirectionChange);
+
 if (localStorage.getItem("highestScore") === null) {
   localStorage.setItem("highestScore", "0");
 }
@@ -24,6 +26,7 @@ const startGame = () => {
     app!.classList.add("play");
 
     createScore();
+    createControlers();
     createSnake();
     increaseSpeed();
   }

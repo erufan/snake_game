@@ -1,9 +1,13 @@
 import createElement from "../utils/createElement";
 
-const createButton = (className: string, callback?: () => void) => {
+const createButton = (
+  textContent: string,
+  className: string,
+  callback?: () => void
+) => {
   const button = createElement("button", className);
 
-  button.textContent = "start";
+  button.textContent = textContent;
   if (callback)
     button.onclick = () => {
       callback();

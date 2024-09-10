@@ -1,0 +1,36 @@
+.controlersContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 4% 2%;
+}
+
+.controlers {
+  border-radius: 100%;
+  padding: 10%;
+  font-size: 100%;
+  text-align: center;
+  border: 2px solid #a1e381;
+  cursor: pointer;
+  color: #ffffff;
+  width: 20%;
+  background: url("../../../public/directions/up.webp") no-repeat center/cover;
+  height: 100%;
+}
+
+.up {
+  background: url("../../../public/directions/up.webp") no-repeat center/cover;
+}
+
+.right {
+  background: url("../../../public/directions/left.webp") no-repeat center/cover;
+}
+
+.down {
+  background: url("../../../public/directions/down.webp") no-repeat center/cover;
+}
+
+.left {
+  background: url("../../../public/directions/right.webp") no-repeat
+    center/cover;
+}

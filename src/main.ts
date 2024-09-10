@@ -26,7 +26,7 @@ const startGame = () => {
     app!.classList.add("play");
 
     createScore();
-    createControlers();
+    if (screen.width <= 768) createControlers();
     createSnake();
     increaseSpeed();
   }

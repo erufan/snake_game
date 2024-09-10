@@ -8,6 +8,7 @@ import { app } from "./variables/app";
 import { setDirection } from "./variables/direction";
 import { snakeBody } from "./variables/snakeBody";
 import { gameStarted, setGameStarted } from "./variables/gameStarted";
+import createControlers from "./components/gameController/createControlers";
 
 document.addEventListener("keydown", handleDirectionChange);
 document.addEventListener("touchstart", (e) => {
@@ -49,6 +50,7 @@ const startGame = () => {
     app!.classList.add("play");
 
     createScore();
+    createControlers();
     createSnake();
     increaseSpeed();
   }

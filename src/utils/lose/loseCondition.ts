@@ -5,6 +5,7 @@ import sounds from "../audioManager";
 import createElement from "../createElement";
 import getHeadCoordinate from "../getHeadCoordinate";
 import "./loseStyle.css";
+import image from "../../../public/sadlose-min.webp";
 
 const loseCondition = (interval: NodeJS.Timeout) => {
   const coordinate = getHeadCoordinate();
@@ -49,5 +50,5 @@ const loseUi = (interval: NodeJS.Timeout) => {
   lost.textContent = "You Lost";
   lost.onclick = () => location.reload();
 
-  createEnterImage("./public/sadlose-min.webp", "you lost");
+  createEnterImage(`${image}`, "you lost");
 };

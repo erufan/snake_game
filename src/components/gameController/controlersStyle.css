@@ -14,7 +14,6 @@
   cursor: pointer;
   color: #ffffff;
   width: 20%;
-  background: url("../../../public/directions/up.webp") no-repeat center/cover;
   height: 100%;
 }
 
@@ -23,7 +22,8 @@
 }
 
 .right {
-  background: url("../../../public/directions/left.webp") no-repeat center/cover;
+  background: url("../../../public/directions/right.webp") no-repeat
+    center/cover;
 }
 
 .down {
@@ -31,6 +31,5 @@
 }
 
 .left {
-  background: url("../../../public/directions/right.webp") no-repeat
-    center/cover;
+  background: url("../../../public/directions/left.webp") no-repeat center/cover;
 }

@@ -4,7 +4,6 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig({
   plugins: [
     VitePWA({
-      devOptions: { enabled: true },
       manifest: {
         theme_color: "#ffffff",
         icons: [

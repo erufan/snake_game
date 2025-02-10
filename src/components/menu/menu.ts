@@ -2,7 +2,7 @@ import { app } from "../../variables/app";
 import createEnterImage from "./createEnterImage";
 import createButton from "../createButton";
 import "./menuStyle.css";
-import imgae from "../../../public/happySnake-min.webp";
+import imgae from "../../assets/happySnake-min.webp";
 
 const menu = (callback: () => void) => {
   app!.classList.add("menu");

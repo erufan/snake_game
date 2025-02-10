@@ -5,7 +5,7 @@ import sounds from "../audioManager";
 import createElement from "../createElement";
 import getHeadCoordinate from "../getHeadCoordinate";
 import "./loseStyle.css";
-import image from "../../../public/sadlose-min.webp";
+import image from "../../assets/sadlose-min.webp";
 
 const loseCondition = (interval: NodeJS.Timeout) => {
   const coordinate = getHeadCoordinate();

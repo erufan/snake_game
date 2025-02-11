@@ -31,12 +31,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        runtimeCaching: [
-          {
-            urlPattern: ({ url }) => url.pathname.startsWith("/assets/"),
-            handler: "CacheFirst",
-          },
-        ],
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,webp}"],
       },
     }),
   ],
